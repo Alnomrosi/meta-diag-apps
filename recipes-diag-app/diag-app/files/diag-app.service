@@ -1,0 +1,14 @@
+[Unit]
+Description=Diagnostics Middleware MicroService
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/apps_diag
+Restart=on-failure
+RestartSec=2
+Environment="PYTHONPATH=/lib/python3/site-packages"
+Environment="APP_MODE=DEPLOYMENT"
+
+[Install]
+WantedBy=multi-user.target
